@@ -9,12 +9,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><img width="60" src="{{componentePc.img}}" alt="{{componentePc.nombre}}"></td>
-        <td>{{componentePc.nombre}}</td>
+      <tr *ngFor="let componentePc of componentesPc" [ngClass]="{'table-primary':componentePc.cuotasSinInteres}">
+        <td><img width="60" [src]="componentePc.img" [alt]="componentePc.nombre"></td>
+        <td>{{componentePc.nombre | uppercase}}</td>
         <td>{{componentePc.marca}}</td>
-        <td>{{componentePc.precio}}</td>
-        <td>{{componentePc.stock}}</td>
+        <td>{{componentePc.precio | currency}}</td>
+        <td>
+            <span class="badge rounded-pill text-bg-info" *ngIf="componentePc.stock>=1">Stock</span>
+            <span class="badge rounded-pill text-bg-danger" *ngIf="componentePc.stock==0">No stock</span>
+        </td>
+       
       </tr>
     </tbody>
   </table>
