@@ -7,7 +7,8 @@ import { TablaComponentesComponent } from './tabla-componentes/tabla-componentes
 import { CarritoComponentesComponent } from './carrito-componentes/carrito-componentes.component';
 import { FormsModule } from '@angular/forms';
 import { ComputecnoAboutComponent } from './computecno-about/computecno-about.component';
-import { ComputecnoComprasComponent } from './computecno-compras/computecno-compras.component'
+import { ComputecnoComprasComponent } from './computecno-compras/computecno-compras.component';
+import { InputEnterosComponent } from './input-enteros/input-enteros.component'
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ComputecnoComprasComponent } from './computecno-compras/computecno-comp
     TablaComponentesComponent,
     CarritoComponentesComponent,
     ComputecnoAboutComponent,
-    ComputecnoComprasComponent
+    ComputecnoComprasComponent,
+    InputEnterosComponent
   ],
   imports: [
     BrowserModule,

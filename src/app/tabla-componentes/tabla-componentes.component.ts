@@ -40,18 +40,8 @@ export class TablaComponentesComponent implements OnInit {
   ];
   constructor() { }
   
-  sumarCantidad(componentePc:ComponentePc){
-    if(componentePc.cantidad<componentePc.stock)
-    componentePc.cantidad++;
-  }
-
-  cambiaValorCantidad(event:Event,componentePc:ComponentePc){
-    
-  }
-
-  restarCantidad(componentePc:ComponentePc){
-    if(componentePc.cantidad>0)
-    componentePc.cantidad--;
+  seAlcanzoMax(evento:number){
+    alert("No se puede comprar más alcanzaste el límite del stock de"+evento);
   }
 
   ngOnInit(): void {
