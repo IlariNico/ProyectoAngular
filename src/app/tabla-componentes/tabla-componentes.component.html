@@ -1,4 +1,4 @@
-<table class="table mt-4 align-middle">
+<table class="table mt-4 align-middle text-center">
     <thead>
       <tr>
         <th scope="col">Imagen</th>
@@ -6,18 +6,27 @@
         <th scope="col">Marca</th>
         <th scope="col">Precio</th>
         <th scope="col">Stock</th>
+        <th scope="col">Comprar</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="">
       <tr *ngFor="let componentePc of componentesPc" [ngClass]="{'table-primary':componentePc.cuotasSinInteres}">
-        <td><img width="60" [src]="componentePc.img" [alt]="componentePc.nombre"></td>
+        <td><img width="80" [src]="componentePc.img" [alt]="componentePc.nombre"></td>
         <td>{{componentePc.nombre | uppercase}}</td>
         <td>{{componentePc.marca}}</td>
         <td>{{componentePc.precio | currency}}</td>
         <td>
-            <span class="badge rounded-pill text-bg-info" *ngIf="componentePc.stock>=1">Stock</span>
-            <span class="badge rounded-pill text-bg-danger" *ngIf="componentePc.stock==0">No stock</span>
+          <span class="badge rounded-pill text-bg-info" *ngIf="componentePc.stock>=1">Disponible</span>
+          <span class="badge rounded-pill text-bg-danger" *ngIf="componentePc.stock==0">No stock</span>
         </td>
+        <td>
+          <span class="d-flex flex-row justify-content-center" *ngIf="componentePc.stock>=1">
+            <button class="btn btn-primary btn-sm" (click)="restarCantidad(componentePc)">-</button>
+            <input class="inputCant" type="text" [(ngModel)]="componentePc.cantidad" (keyup)="cambiaValorCantidad($event,componentePc)">
+            <button class="btn btn-primary btn-sm" (click)="sumarCantidad(componentePc)">+</button>
+          </span>
+        </td>
+        
        
       </tr>
     </tbody>

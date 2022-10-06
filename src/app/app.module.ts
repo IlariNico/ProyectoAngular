@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TablaComponentesComponent } from './tabla-componentes/tabla-componentes.component';
 import { CarritoComponentesComponent } from './carrito-componentes/carrito-componentes.component';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -14,7 +15,9 @@ import { CarritoComponentesComponent } from './carrito-componentes/carrito-compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

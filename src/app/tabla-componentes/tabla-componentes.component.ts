@@ -17,6 +17,7 @@ export class TablaComponentesComponent implements OnInit {
       stock:15,
       img:"/assets/img/Placa-De-Video-GeForce-RTX-3090-24Gb-Asus-Rog-Strix-Gaming-Oc-Blanco_43111_1.jpeg",
       cuotasSinInteres:false,
+      cantidad:0,
     },
     {
       nombre:"I9 12900k",
@@ -25,6 +26,7 @@ export class TablaComponentesComponent implements OnInit {
       stock:18,
       img:"/assets/img/intel-core-i9-12900k-52-ghz.jpg",
       cuotasSinInteres:true,
+      cantidad:0,
     },
     {
       nombre:"Vengance 16 gb",
@@ -33,9 +35,24 @@ export class TablaComponentesComponent implements OnInit {
       stock:0,
       img:"/assets/img/memoria-rgb_40890_2.jpeg",
       cuotasSinInteres:false,
+      cantidad:0,
     },
   ];
   constructor() { }
+  
+  sumarCantidad(componentePc:ComponentePc){
+    if(componentePc.cantidad<componentePc.stock)
+    componentePc.cantidad++;
+  }
+
+  cambiaValorCantidad(event:Event,componentePc:ComponentePc){
+    
+  }
+
+  restarCantidad(componentePc:ComponentePc){
+    if(componentePc.cantidad>0)
+    componentePc.cantidad--;
+  }
 
   ngOnInit(): void {
   }

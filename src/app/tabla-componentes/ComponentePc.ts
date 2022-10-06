@@ -5,4 +5,5 @@ export interface ComponentePc{
     stock:number;
     img:string;
     cuotasSinInteres:boolean;
+    cantidad:number;
 }
