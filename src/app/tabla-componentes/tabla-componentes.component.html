@@ -5,6 +5,7 @@
         <th scope="col">Nombre</th>
         <th scope="col">Marca</th>
         <th scope="col">Precio</th>
+        <th scope="col">Oferta</th>
         <th scope="col">Comprar</th>
       </tr>
     </thead>
@@ -12,9 +13,10 @@
       <tr *ngFor="let componentePc of componentesPc" [ngClass]="{'table-primary':componentePc.cuotasSinInteres}">
         <td><img width="80" [src]="componentePc.img" [alt]="componentePc.nombre"></td>
         <td>{{componentePc.nombre | uppercase}}</td>
-        <td>{{componentePc.marca}}</td>
+        <td>{{componentePc.marca | titlecase}}</td>
         <td>{{componentePc.precio | currency}}</td>
-        
+        <td><label *ngIf="componentePc.cuotasSinInteres==false; else elseBlock " class="badge text-bg-primary">Precio al contado</label></td>
+        <ng-template #elseBlock><span class="badge text-bg-warning">Cuotas s/interes</span></ng-template>
         <td>
           <button class="btn btn-success" (click)="agregarAlCarrito(componentePc)">Agregar</button>
         </td>

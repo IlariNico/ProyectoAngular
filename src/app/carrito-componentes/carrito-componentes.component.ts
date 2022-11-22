@@ -19,7 +19,7 @@ export class CarritoComponentesComponent implements OnInit {
 
    public eliminarDelCarrito(Componente:ComponentePc){
     this.carrito.eliminarDelCarrito(Componente);
-    console.log(this.listado$);
+    
    }
 
   ngOnInit(): void {

@@ -11,9 +11,9 @@
         <tr *ngFor="let componente of listado$ | async">
             <td ><img width="80" [src]="componente.img" [alt]="componente.nombre"></td>
             <td >{{componente.nombre | uppercase}}</td>
-            <td >{{componente.marca}}</td>
+            <td >{{componente.marca | titlecase}}</td>
             <td><button class="btn btn-danger" (click)="eliminarDelCarrito(componente)">Eliminar</button></td>
         </tr>
     </tbody>
 </table>
-<p class="text-center"><b>Total {{total$ | async}}</b></p>
+<p class="text-center"><b>Total ${{total$ | async}}</b></p>
