@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CarritoComponentesService } from '../carrito-componentes.service';
+import { DatosComponentesService } from '../datos-componentes.service';
 import { ComponentePc } from './ComponentePc';
 
 @Component({
@@ -9,42 +11,17 @@ import { ComponentePc } from './ComponentePc';
 export class TablaComponentesComponent implements OnInit {
 
   
-  componentesPc:ComponentePc[]=[
-    {
-      nombre:"Rtx 3090",
-      marca:"Gigabyte",
-      precio:9999,
-      stock:15,
-      img:"/assets/img/Placa-De-Video-GeForce-RTX-3090-24Gb-Asus-Rog-Strix-Gaming-Oc-Blanco_43111_1.jpeg",
-      cuotasSinInteres:false,
-      cantidad:0,
-    },
-    {
-      nombre:"I9 12900k",
-      marca:"Intel",
-      precio:15000,
-      stock:18,
-      img:"/assets/img/intel-core-i9-12900k-52-ghz.jpg",
-      cuotasSinInteres:true,
-      cantidad:0,
-    },
-    {
-      nombre:"Vengance 16 gb",
-      marca:"Corsair",
-      precio:20000,
-      stock:0,
-      img:"/assets/img/memoria-rgb_40890_2.jpeg",
-      cuotasSinInteres:false,
-      cantidad:0,
-    },
-  ];
-  constructor() { }
-  
-  seAlcanzoMax(evento:number){
-    alert("No se puede comprar más alcanzaste el límite del stock de"+evento);
+  componentesPc:ComponentePc[]=[];
+
+  constructor(private carrito:CarritoComponentesService,private datosComponentes:DatosComponentesService) { 
+    
+  }
+  agregarAlCarrito(componente:ComponentePc){
+    this.carrito.agregarAlCarrito(componente);
   }
 
   ngOnInit(): void {
+    this.datosComponentes.obtenerTodos().subscribe(c=>this.componentesPc=c);
   }
 
 }

@@ -5,7 +5,6 @@
         <th scope="col">Nombre</th>
         <th scope="col">Marca</th>
         <th scope="col">Precio</th>
-        <th scope="col">Stock</th>
         <th scope="col">Comprar</th>
       </tr>
     </thead>
@@ -15,13 +14,9 @@
         <td>{{componentePc.nombre | uppercase}}</td>
         <td>{{componentePc.marca}}</td>
         <td>{{componentePc.precio | currency}}</td>
+        
         <td>
-          <span class="badge rounded-pill text-bg-info" *ngIf="componentePc.stock>=1">Disponible</span>
-          <span class="badge rounded-pill text-bg-danger" *ngIf="componentePc.stock==0">No stock</span>
-        </td>
-        <td>
-          <app-input-enteros [(cantidad)]="componentePc.cantidad" [maximo]="componentePc.stock" (seAlcanzoMax)="seAlcanzoMax($event)" *ngIf="componentePc.stock>=1"></app-input-enteros>
-          
+          <button class="btn btn-success" (click)="agregarAlCarrito(componentePc)">Agregar</button>
         </td>
         
        

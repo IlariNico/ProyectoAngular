@@ -1,1 +1,19 @@
-<p>carrito-componentes works!</p>
+<table class="table mt-4 align-middle text-center">
+    <thead>
+        <tr>
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let componente of listado$ | async">
+            <td ><img width="80" [src]="componente.img" [alt]="componente.nombre"></td>
+            <td >{{componente.nombre | uppercase}}</td>
+            <td >{{componente.marca}}</td>
+            <td><button class="btn btn-danger" (click)="eliminarDelCarrito(componente)">Eliminar</button></td>
+        </tr>
+    </tbody>
+</table>
+<p class="text-center"><b>Total {{total$ | async}}</b></p>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule }from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TablaComponentesComponent } from './tabla-componentes/tabla-componentes.component';
@@ -8,7 +8,7 @@ import { CarritoComponentesComponent } from './carrito-componentes/carrito-compo
 import { FormsModule } from '@angular/forms';
 import { ComputecnoAboutComponent } from './computecno-about/computecno-about.component';
 import { ComputecnoComprasComponent } from './computecno-compras/computecno-compras.component';
-import { InputEnterosComponent } from './input-enteros/input-enteros.component'
+
 
 @NgModule({
   declarations: [
@@ -17,13 +17,13 @@ import { InputEnterosComponent } from './input-enteros/input-enteros.component'
     CarritoComponentesComponent,
     ComputecnoAboutComponent,
     ComputecnoComprasComponent,
-    InputEnterosComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
